@@ -331,16 +331,6 @@
     <!-- End Header -->
 
 
-        
-<!-- Start Landing -->
-<div class="landing">
-  <div class="info">
-    <div class="text">
-      <a class='shop-btn' href='women.html'>shop women</a>
-    </div>
-  </div>
-</div>
-
 
 <!-- Luxury Auto Video Hero -->
 <section class="hero-video">
@@ -382,13 +372,11 @@
     <div class="stm-popular-tabs" id="stmCategoryTabs">
       <button class="stm-tab-btn " data-cat="Sarees">Sarees</button>
       <button class="stm-tab-btn " data-cat="Salwar Suits">Salwar Suits</button>
-      <button class="stm-tab-btn " data-cat="Dhoti Kurta">Dhoti Kurta</button>
       <button class="stm-tab-btn " data-cat="Kurta Sets">Kurta Sets</button>
       <button class="stm-tab-btn " data-cat="Lehenga Choli">Lehenga Choli</button>
       <button class="stm-tab-btn " data-cat="Anarkali Suits">Anarkali Suits</button>
       <button class="stm-tab-btn " data-cat="Dupattas">Dupattas</button>
       <button class="stm-tab-btn " data-cat="Ethnic Gowns">Ethnic Gowns</button>
-      <button class="stm-tab-btn " data-cat="Sherwani">Sherwani</button>
     </div>
     <!-- Products -->
     
@@ -855,6 +843,56 @@
   </div>
 </section>-->
 
+<footer class="kesar-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- Brand -->
+      <div class="footer-col">
+        <h3 class="footer-logo">KESAR FASHION</h3>
+        <p>
+          Premium ethnic wear crafted with elegance and tradition.
+          Delivering timeless fashion across India and global markets.
+        </p>
+      </div>
+
+      <!-- Shop -->
+      <div class="footer-col">
+        <h4>SHOP</h4>
+        <a href="#">Women</a>
+        <a href="#">Luxe Collection</a>
+        <a href="#">New Arrivals</a>
+        <a href="#">Offers</a>
+      </div>
+
+      <!-- Support -->
+      <div class="footer-col">
+        <h4>SUPPORT</h4>
+        <a href="#">Customer Care</a>
+        <a href="#">FAQ</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+      </div>
+
+      <!-- Social -->
+      <div class="footer-col">
+        <h4>FOLLOW US</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+      <p>© 2025 Kesar Fashion. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
 
 
 
@@ -904,65 +942,6 @@ function toggleWishlist(event, btn) {
 
 
 
-<footer class="newgen-footer">
-  <div class="newgen-footer-columns">
-    <div class="footer-col">
-      <h4>SHOP BY</h4>
-      <a href="#">Women</a>
-    </div>
-    
-    <div class="footer-col">
-      <h4>HELP & SUPPORT</h4>
-      <!--<a href="#">Track Your Order</a>-->
-      <a href="#">Customer Care</a>
-      <!--<a href="#">Returns</a>
-      <a href="#">Payments</a>
-      <a href="#">Cancellation</a>-->
-      <a href="#">FAQ</a>
-    </div>
-    
-    <div class="footer-col">
-      <h4>KESAR FASHION SERVICES</h4>
-      <a href="#">Offers</a>
-      <a href="#">Luxe Collection</a>
-    </div>
-    
-    <div class="footer-col">
-      <h4>FOLLOW KESAR FASHION</h4>
-      <a href="#">Instagram</a>
-      <a href="#">Facebook</a>
-      <a href="#">Twitter</a>
-    </div>
-  </div>
-</footer>
-<!-- Start Footer -->
-<div class="footer">
-  <div class="container">
-    <div class="contents">
-      <div class="top">
-        <div class="country">
-          <span>Kesar Fashion</span>
-        </div>
-        <div class="links">
-          <span>Privacy Policy</span> &nbsp; &nbsp;
-          <span>Terms and Conditions</span>
-        </div>
-      </div>
-      <div class="bottom">
-        <p><!--&copy;-->© 2025 Kesar FASHION. All Rights Reserved.</p>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-    <!-- End Footer -->
-     
-     <style>
-     .cart-icon {
-     color: black;         
-     text-decoration: none;
-    }
-    </style>
 
 
     <script>
@@ -1474,22 +1453,22 @@ function toggleWishlist(event, btn) {
     </script>
 
    <script>
-const videos = document.querySelectorAll(".bg-video");
-let currentIndex = 0;
+document.addEventListener("DOMContentLoaded", function () {
 
-function changeVideo() {
-  videos[currentIndex].classList.remove("active");
+  const videos = document.querySelectorAll(".bg-video");
+  let currentIndex = 0;
 
-  currentIndex++;
-  if (currentIndex >= videos.length) {
-    currentIndex = 0;
-  }
+  videos.forEach((video, index) => {
+    video.addEventListener("ended", () => {
+      videos[currentIndex].classList.remove("active");
 
-  videos[currentIndex].classList.add("active");
-}
+      currentIndex = (currentIndex + 1) % videos.length;
+      videos[currentIndex].classList.add("active");
+      videos[currentIndex].play();
+    });
+  });
 
-// Change every 8 seconds
-setInterval(changeVideo, 8000);
+});
 </script>
     
     <style>
