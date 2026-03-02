@@ -899,13 +899,13 @@ i.fa-user {
 
 
 /*videos */
-.hero-video {
+.landing-video {
   position: relative;
   height: 100vh;
   overflow: hidden;
 }
 
-.video-wrapper {
+.video-container {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -924,18 +924,14 @@ i.fa-user {
   opacity: 1;
 }
 
-.overlay {
+.video-overlay {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    rgba(0, 0, 0, 0.75),
-    rgba(0, 0, 0, 0.75)
-  );
-  z-index: 1;
+  background: rgba(0,0,0,0.6);
 }
 
-.hero-content {
+.landing-content {
   position: relative;
   z-index: 2;
   top: 50%;
@@ -944,25 +940,19 @@ i.fa-user {
 }
 
 .hero-title {
-  font-size: 70px;
+  font-size: 60px;
   font-weight: 700;
-  letter-spacing: 3px;
 }
 
 .hero-subtitle {
-  font-size: 24px;
-  margin: 20px 0 30px;
+  font-size: 22px;
+  margin: 20px 0;
 }
 
-.hero-btn {
-  padding: 14px 35px;
+.shop-btn {
+  padding: 12px 30px;
   background: #d4af37;
   color: #000;
   text-decoration: none;
   font-weight: 600;
-  transition: 0.3s;
-}
-
-.hero-btn:hover {
-  background: #fff;
 }
