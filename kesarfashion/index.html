@@ -331,34 +331,25 @@
     <!-- End Header -->
 
 
-
-<!-- Luxury Auto Video Hero -->
 <section class="hero-video">
+  <video class="bg-video active" muted playsinline preload="metadata">
+    <source src="media/products/kesar1.mp4" type="video/mp4">
+  </video>
 
-  <div class="video-wrapper">
-    <video class="bg-video active" autoplay muted playsinline>
-      <source src="media/products/kesar1.mp4" type="video/mp4">
-    </video>
+  <video class="bg-video" muted playsinline preload="metadata">
+    <source src="media/products/kesar2.mp4" type="video/mp4">
+  </video>
 
-    <video class="bg-video" autoplay muted playsinline>
-      <source src="media/products/kesar2.mp4" type="video/mp4">
-    </video>
+  <video class="bg-video" muted playsinline preload="metadata">
+    <source src="media/products/kesar3.mp4" type="video/mp4">
+  </video>
 
-    <video class="bg-video" autoplay muted playsinline>
-      <source src="media/products/kesar3.mp4" type="video/mp4">
-    </video>
-  </div>
-
-  <div class="overlay"></div>
+  <div class="video-overlay"></div>
 
   <div class="hero-content text-center">
-    <h1 class="hero-title">Kesar Fashion</h1>
-    <p class="hero-subtitle">
-      Premium Women’s Ethnic Wear Since 2006
-    </p>
-    <a href="#" class="hero-btn">Explore Collection</a>
+    <h1>Kesar Fashion</h1>
+    <p>Elegance in Every Thread</p>
   </div>
-
 </section>
 
 <!-- End Landing -->
@@ -1452,24 +1443,33 @@ function toggleWishlist(event, btn) {
         });
     </script>
 
-   <script>
+    <script>
 document.addEventListener("DOMContentLoaded", function () {
 
   const videos = document.querySelectorAll(".bg-video");
   let currentIndex = 0;
 
   videos.forEach((video, index) => {
-    video.addEventListener("ended", () => {
-      videos[currentIndex].classList.remove("active");
-
-      currentIndex = (currentIndex + 1) % videos.length;
-      videos[currentIndex].classList.add("active");
-      videos[currentIndex].play();
-    });
+    if(index !== 0) video.pause();
   });
+
+  function showNextVideo() {
+    videos[currentIndex].classList.remove("active");
+    videos[currentIndex].pause();
+
+    currentIndex = (currentIndex + 1) % videos.length;
+
+    videos[currentIndex].classList.add("active");
+    videos[currentIndex].currentTime = 0;
+    videos[currentIndex].play();
+  }
+
+  videos[0].play();
+  setInterval(showNextVideo, 8000);
 
 });
 </script>
+
     
     <style>
     i.fa-user {
