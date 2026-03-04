@@ -293,7 +293,7 @@ i.fa-user {
     .recent-title {
         font-size: 24px;
     }
-}
+}  
 
 
 /*about us section*/
@@ -1265,7 +1265,7 @@ i.fa-user {
     /* Eyebrow label */
     .hero-eyebrow {
       font-family: var(--sans);
-      font-weight: 300;
+      font-weight: 600;
       font-size: .62rem;
       letter-spacing: .35em;
       text-transform: uppercase;
@@ -1476,13 +1476,15 @@ i.fa-user {
 
     /* ── FOOTER SHELL ── */
     .kesar-footer {
-      background: var(--ink);
-      color: var(--parchment);
-      font-family: var(--sans);
-      font-weight: 300;
-      position: relative;
-      overflow: hidden;
-    }
+  background: var(--ink);
+  color: var(--parchment);
+  font-family: var(--sans);
+  font-weight: 300;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
 
     /* Decorative background medallion */
     .kesar-footer::before {
@@ -1506,12 +1508,14 @@ i.fa-user {
     }
 
     .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      position: relative;
-      z-index: 1;
-    }
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 4rem;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+}
 
     /* ── TOP DIVIDER ── */
     .footer-top-rule {
@@ -1973,4 +1977,122 @@ i.fa-user {
   color: #9b7d5a;
   letter-spacing: 1.8px;
   text-transform: uppercase;
+}
+
+/* ── Single background image behind all products ────── */
+.products-bg-wrap {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* The one background image */
+.products-bg-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('media/products/Womensaree3.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+  /* Dark vignette so cards stay legible */
+  filter: brightness(0.35) saturate(0.7);
+  z-index: 0;
+}
+
+/* Subtle gradient fade on top and bottom edges */
+.products-bg-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 5, 2, 0.45) 0%,
+    transparent 12%,
+    transparent 88%,
+    rgba(10, 5, 2, 0.55) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Lift all grid content above the image layers */
+.products-bg-wrap > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Cards get glass-dark treatment to sit over the image */
+.popular-card {
+  background: rgba(10, 5, 2, 0.55) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.popular-card .product-title { color: #f0d9b0 !important; }
+.popular-card .product-type  { color: rgba(240, 217, 176, 0.55) !important; }
+
+.recent-product-card {
+  background: rgba(10, 5, 2, 0.55) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.recent-product-info h5    { color: #f0d9b0 !important; }
+.recent-brand              { color: rgba(240, 217, 176, 0.55) !important; }
+.recent-title              { color: #f0d9b0 !important; }
+
+/* ── Floating WhatsApp Button ── */
+@keyframes zoom-in-out {
+    0%   { transform: scale(1);   }
+    50%  { transform: scale(1.1); }
+    100% { transform: scale(1);   }
+}
+
+.whatsapp {
+    position: fixed;
+    right: 8px;
+    bottom: 38px;
+    z-index: 999;
+}
+
+.whatsapp img {
+    max-width: 220px;
+    animation: zoom-in-out 3s ease-in-out infinite;
+}
+
+@media (max-width: 780px) {
+    .whatsapp img {
+        max-width: 200px;
+    }
+}
+
+
+/* ── Product cards clickable cursor ── */
+.popular-card,
+.recent-product-card {
+  cursor: pointer;
+}
+
+
+/* ── Footer full-width fix ── */
+body {
+  overflow-x: hidden;
+}
+
+.kesar-footer .container {
+  max-width: 100%;
+  padding: 0 40px;
+}
+
+.footer-grid {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .kesar-footer .container {
+    padding: 0 20px;
+  }
 }
