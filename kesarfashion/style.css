@@ -1690,7 +1690,7 @@ i.fa-user {
   position: fixed;
   right: 8px;
   bottom: 38px;
-  z-index: 999;
+  z-index: 6;
 }
 
 .whatsapp img {
