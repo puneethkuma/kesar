@@ -9,6 +9,15 @@
    GLOBAL DESIGN SYSTEM
 ========================= */
 
+
+.header .logo img {
+  height: 72px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  display: block;
+}
+
 :root {
   --primary: #111111;
   --secondary: #555555;
